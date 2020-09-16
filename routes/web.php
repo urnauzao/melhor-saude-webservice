@@ -18,6 +18,8 @@ use App\Http\Controllers\DefaultController;
 //     return view('welcome');
 // });
 
-Route::get('teste', [DefaultController::class, 'teste']);
 Route::get('/', [DefaultController::class, 'index']);
+Route::get('teste', [DefaultController::class, 'teste']);
+Route::get('teste2', [DefaultController::class, 'teste2']);
+Route::get('/teste3', [DefaultController::class, 'teste2']);
 

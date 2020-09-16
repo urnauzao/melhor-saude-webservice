@@ -41,6 +41,10 @@ class DefaultController extends Controller
 
     }
 
+    public function teste2()
+    {
+        return response()->json(['urnau' => "urnauzera"]);
+    }
 
 
 
