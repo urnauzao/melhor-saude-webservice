@@ -58,8 +58,8 @@ class MedicoController extends Controller
             if(count($check))
                 return response()->json(['erro' => "Nome do Médico já existe!"]);
 
-            $medico = new Clinica();
-            $medico->clinica_id = $clinicas;
+            $medico = new Medico;
+            $medico->clinica_id = $clinicas->id;
             $medico->nome = $object['nome'];
             $medico->idade = $object['idade'];
             $medico->especializacao = $object['especializacao'];

@@ -42,15 +42,19 @@ class ServicoController extends Controller
             
             $servico = Servico::where(['nome' => $object['nome']])->first();    
             if(empty($object['lista_clinicas'])){
+                if($servico)
+                    return response()->json(['servico' => $servico]);
+
                 $servico = new Servico;
                 $servico->nome = $object['nome'];
                 $servico->lista_clinicas = [];
             }else{
                 $arrayClinicaIds = [];
                 foreach($object['lista_clinicas'] as $key => $clinicaId){
-                    $clinica = Clinica::find($clinicaId)->first();
-                    if($clinica && !in_array($servico->lista_clinicas, $clinicaId))
-                        $arrayClinicaIds[] = $clinicaId;
+                    $id = intval($clinicaId);
+                    $clinica = Clinica::find($id)->first();
+                    if($clinica && !in_array($clinica->id, $servico->lista_clinicas))
+                        $arrayClinicaIds[] = $id;
                 }
                 $servico->lista_clinicas = array_merge($servico->lista_clinicas, $arrayClinicaIds);
             }
