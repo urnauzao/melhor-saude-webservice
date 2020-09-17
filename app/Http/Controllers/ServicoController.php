@@ -49,14 +49,14 @@ class ServicoController extends Controller
                 $servico->nome = $object['nome'];
                 $servico->lista_clinicas = [];
             }else{
-                $arrayClinicaIds = [];
-                foreach($object['lista_clinicas'] as $key => $clinicaId){
+                $arrayClinicaIds = $servico->lista_clinicas;
+                foreach($object['lista_clinicas'] as $clinicaId){
                     $id = intval($clinicaId);
                     $clinica = Clinica::find($id)->first();
                     if($clinica && !in_array($clinica->id, $servico->lista_clinicas))
                         $arrayClinicaIds[] = $id;
                 }
-                $servico->lista_clinicas = array_merge($servico->lista_clinicas, $arrayClinicaIds);
+                $servico->lista_clinicas =  $arrayClinicaIds;
             }
             $servico->save();
 

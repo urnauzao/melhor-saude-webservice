@@ -108,6 +108,16 @@ class MedicoController extends Controller
         }
     }
 
+    public function byClinica(int $id)
+    {
+        try {
+            $medicos = Medico::where(['clinica_id' => $id ])->all();
+            return response()->json(['medicos' => $medicos]);
+        } catch (\Throwable $th) {
+            return response()->json(['erro' => $th]);
+        }
+    }
+
 
     /**
      * Show the form for editing the specified resource.

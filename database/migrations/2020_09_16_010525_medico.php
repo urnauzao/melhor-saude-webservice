@@ -22,7 +22,7 @@ class Medico extends Migration
             $table->string('preco_consulta')->nullable();
             $table->string('telefone')->nullable();
             $table->string('email')->nullable();
-            $table->integer('whatsapp')->nullable();
+            $table->bigInteger('whatsapp')->nullable();
             $table->string('foto')->nullable();
             $table->foreign('clinica_id')->references('id')->on('clinicas'); 
             $table->timestamp('updated_at')->useCurrent();

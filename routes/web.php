@@ -42,7 +42,7 @@ Route::prefix('servico')->group(function () {
 Route::prefix('medico')->group(function () {
     Route::get('/', [MedicoController::class, 'index']);
     Route::get('/all', [MedicoController::class, 'all']);
-    // Route::get('/model', [MedicoController::class, 'create']);
+    Route::get('/clinica/{id}', [MedicoController::class, 'byClinica']);
     Route::post('/new', [MedicoController::class, 'store']);
     Route::get('/show/{id}', [MedicoController::class, 'show']);
 });
