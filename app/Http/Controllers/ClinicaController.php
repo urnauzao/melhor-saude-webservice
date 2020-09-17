@@ -38,28 +38,28 @@ class ClinicaController extends Controller
     {
         try {
             $object = $request->all();
-            return response()->json(['resultado' => $object]);
-            if(empty($object->nome))
+            // return response()->json(['resultado' => $object]);
+            if(empty($object['nome']))
                 return response()->json(['erro' => "nome Inválido"]);
 
-            if(Clinica::where([ 'nome' => $object->nome ])->get())
+            if(Clinica::where([ 'nome' => $object['nome'] ])->get())
                 return response()->json(['erro' => "Nome da clinica já existe!"]);
 
             $clinica = new Clinica();
-            $clinica->nome = $object->nome;
-            $clinica->url_imagem = $object->url_imagem;
-            $clinica->url = $object->url;
-            $clinica->descricao = $object->descricao;
-            $clinica->local_resumido = $object->local_resumido;
-            $clinica->endereco = $object->endereco;
-            $clinica->num_endereco = $object->num_endereco;
-            $clinica->complemento = $object->complemento;
-            $clinica->cep = $object->cep;
-            $clinica->cidade = $object->cidade;
-            $clinica->bairro = $object->bairro;
-            $clinica->estado = $object->estado;
-            $clinica->pais = $object->pais;
-            $clinica->rating = $object->rating;
+            $clinica->nome = $object['nome'];
+            $clinica->url_imagem = $object['url_imagem'];
+            $clinica->url = $object['url'];
+            $clinica->descricao = $object['descricao'];
+            $clinica->local_resumido = $object['local_resumido'];
+            $clinica->endereco = $object['endereco'];
+            $clinica->num_endereco = $object['num_endereco'];
+            $clinica->complemento = $object['complemento'];
+            $clinica->cep = $object['cep'];
+            $clinica->cidade = $object['cidade'];
+            $clinica->bairro = $object['bairro'];
+            $clinica->estado = $object['estado'];
+            $clinica->pais = $object['pais'];
+            $clinica->rating = $object['rating'];
             $clinica->save();
 
             $clinicas = Clinica::all();
