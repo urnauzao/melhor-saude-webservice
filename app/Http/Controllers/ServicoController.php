@@ -58,8 +58,7 @@ class ServicoController extends Controller
                     $clinicaDesconhecida = [];
                     $id = intval($clinicaId);
                     $clinica = Clinica::find($id)->first();
-                    // if($clinica && !in_array($id, $arrayClinicaIds))
-                    if($clinica)
+                    if($clinica && !in_array($id, $arrayClinicaIds))
                         $arrayClinicaIds[] = $id;
                     else
                         $clinicaDesconhecida[] = $id;
