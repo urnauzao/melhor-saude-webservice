@@ -39,12 +39,13 @@ class MedicoController extends Controller
     {
         try {
             $object = $request->all();
-            if(empty($object['clinica_id'])){
+            if(!isset($object['clinica_id'])){
                 $clinicas = Clinica::select('nome', 'id')->all();
                 return response()->json(['erro' => "Id da clinica deve ser informado", 'clinicas' => $clinicas]);
             }
 
-            $clinicas = Clinica::find($object['clinica_id'])->first();
+            $object['clinica_id'] = intval($object['clinica_id']);
+            $clinicas = Clinica::find( $object['clinica_id'] )->first();
             if(empty($clinicas)){
                 $clinicas = Clinica::select('nome', 'id')->all();
                 return response()->json(['erro' => "Id da clinica inválido, informe um id válido", 'clinicas' => $clinicas]);
@@ -99,8 +100,12 @@ class MedicoController extends Controller
 
     public function all()
     {
-        $medicos = Medico::all()->get();
-        return response()->json(['medicos' => $medicos]);
+        try {
+            $medicos = Medico::all();
+            return response()->json(['medicos' => $medicos]);
+        } catch (\Throwable $th) {
+            return response()->json(['erro' => $th]);
+        }
     }
 
 

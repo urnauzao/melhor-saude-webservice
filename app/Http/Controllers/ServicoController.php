@@ -72,7 +72,7 @@ class ServicoController extends Controller
     public function show()
     {
         try {
-            $servicos = Servico::all()->get();
+            $servicos = Servico::all();
             $resultado = [];
             foreach($servicos as $value){
                 $resultado[] = [

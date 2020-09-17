@@ -15,7 +15,7 @@ class Medico extends Migration
     {
         Schema::create('medicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('clinica_id');
+            $table->integer('clinica_id')->unsigned();
             $table->string('nome')->unique();
             $table->integer('idade')->nullable();
             $table->string('especializacao')->nullable();
@@ -24,7 +24,9 @@ class Medico extends Migration
             $table->string('email')->nullable();
             $table->integer('whatsapp')->nullable();
             $table->string('foto')->nullable();
-            $table->foreign('clinica_id')->references('id')->on('clinicas');             
+            $table->foreign('clinica_id')->references('id')->on('clinicas'); 
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();             
         });
     }
 
