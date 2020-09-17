@@ -91,8 +91,12 @@ class ClinicaController extends Controller
     }
 
     public function all(){
-        $clinicas = Clinica::all()->get();
-        return response()->json(['clinicas' => $clinicas]);
+        try {
+            $clinicas = Clinica::all();
+            return response()->json(['clinicas' => $clinicas]);
+        } catch (\Throwable $th) {
+            return response()->json(['erro' => $th]);
+        }
     }
 
     /**

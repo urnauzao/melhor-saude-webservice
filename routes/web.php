@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::prefix('clinica')->group(function () {
     Route::get('/', [ClinicaController::class, 'index']);
     Route::get('/all', [ClinicaController::class, 'all']);
-    Route::get('/model', [ClinicaController::class, 'create']);
+    // Route::get('/model', [ClinicaController::class, 'create']);
     Route::post('/new', [ClinicaController::class, 'store']);
     Route::get('/show/{id}', [ClinicaController::class, 'show']);
 });
@@ -34,7 +34,7 @@ Route::prefix('clinica')->group(function () {
 Route::prefix('servico')->group(function () {
     Route::get('/', [ServicoController::class, 'index']);
     // Route::get('/all', [ServicoController::class, 'all']);
-    Route::get('/model', [ServicoController::class, 'create']);
+    // Route::get('/model', [ServicoController::class, 'create']);
     Route::post('/new', [ServicoController::class, 'store']);
     Route::get('/show', [ServicoController::class, 'show']);
 });
@@ -42,7 +42,7 @@ Route::prefix('servico')->group(function () {
 Route::prefix('medico')->group(function () {
     Route::get('/', [MedicoController::class, 'index']);
     Route::get('/all', [MedicoController::class, 'all']);
-    Route::get('/model', [MedicoController::class, 'create']);
+    // Route::get('/model', [MedicoController::class, 'create']);
     Route::post('/new', [MedicoController::class, 'store']);
     Route::get('/show/{id}', [MedicoController::class, 'show']);
 });
