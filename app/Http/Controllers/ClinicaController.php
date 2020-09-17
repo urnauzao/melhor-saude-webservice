@@ -24,7 +24,7 @@ class ClinicaController extends Controller
      */
     public function create()
     {
-        $modelo = new Clinica;
+        $modelo = Clinica::all()->limit(1)->get();
         return response()->json(['modelo-clinica' => $modelo]);
     }
 
@@ -38,7 +38,6 @@ class ClinicaController extends Controller
     {
         try {
             $object = $request->all();
-            // return response()->json(['resultado' => $object]);
             if(empty($object['nome']))
                 return response()->json(['erro' => "nome Inválido"]);
 
@@ -63,8 +62,7 @@ class ClinicaController extends Controller
             $clinica->rating = $object['rating'];
             $clinica->save();
 
-            $clinicas = Clinica::all();
-            return response()->json(['clinica' => $clinicas]);
+            return response()->json(['clinica' => $clinica]);
         } catch (\Throwable $th) {
             return response()->json(['erro' => $th]);
         }
@@ -76,20 +74,25 @@ class ClinicaController extends Controller
      * @param  \App\Models\Clinica  $clinica
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show(Request $request, $id)
     {
         try {
-            if(!isset($id))
+            if(!$id)
                 return response()->json(['erro' => "Deve ser informado um ID válido"]);
 
             $clinica = Clinica::find($id)->first();
-            if(empty($clinica))
+            if(!$clinica)
                 return response()->json(['erro' => "Nenhuma clinica foi encontrada"]);
 
-            return response()->json(['clinica' => $clinica]);
+            return response()->json(['clinica' => $clinica, 'id' => $id]);
         } catch (\Throwable $th) {
             return response()->json(['erro' => $th]);
         }
+    }
+
+    public function all(){
+        $clinicas = Clinica::all()->get();
+        return response()->json(['clinicas' => $clinicas]);
     }
 
     /**

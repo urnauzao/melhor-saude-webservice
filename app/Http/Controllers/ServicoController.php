@@ -37,17 +37,17 @@ class ServicoController extends Controller
     {
         try {
             $object = $request->all();
-            if(empty($object->nome))
+            if(empty($object['nome']))
                 return response()->json(['erro' => "nome Inválido"]);
             
-            $servico = Servico::where(['nome' => $object->nome])->first();    
-            if(empty($object->lista_clinicas)){
+            $servico = Servico::where(['nome' => $object['nome']])->first();    
+            if(empty($object['lista_clinicas'])){
                 $servico = new Servico;
-                $servico->nome = $object->nome;
+                $servico->nome = $object['nome'];
                 $servico->lista_clinicas = [];
             }else{
                 $arrayClinicaIds = [];
-                foreach($object->lista_clinicas as $key => $clinicaId){
+                foreach($object['lista_clinicas'] as $key => $clinicaId){
                     $clinica = Clinica::find($clinicaId)->first();
                     if($clinica && !in_array($servico->lista_clinicas, $clinicaId))
                         $arrayClinicaIds[] = $clinicaId;
@@ -56,7 +56,7 @@ class ServicoController extends Controller
             }
             $servico->save();
 
-            $servico = Servico::all();
+            // $servico = Servico::all();
             return response()->json(['servico' => $servico]);
         } catch (\Throwable $th) {
             return response()->json(['erro' => $th]);

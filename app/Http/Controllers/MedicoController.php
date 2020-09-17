@@ -25,7 +25,8 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        return response()->json(['modelo-medico' => new Medico()]);
+        $modelo = Medico::all()->limit(1)->get();
+        return response()->json(['modelo-medico' => $modelo]);
     }
 
     /**
@@ -38,36 +39,35 @@ class MedicoController extends Controller
     {
         try {
             $object = $request->all();
-            if(empty($object->clinica_id)){
+            if(empty($object['clinica_id'])){
                 $clinicas = Clinica::select('nome', 'id')->all();
                 return response()->json(['erro' => "Id da clinica deve ser informado", 'clinicas' => $clinicas]);
             }
 
-            $clinicas = Clinica::find($object->clinica_id)->first();
+            $clinicas = Clinica::find($object['clinica_id'])->first();
             if(empty($clinicas)){
                 $clinicas = Clinica::select('nome', 'id')->all();
                 return response()->json(['erro' => "Id da clinica inválido, informe um id válido", 'clinicas' => $clinicas]);
             }
 
-            if(empty($object->nome))
+            if(!isset($object['nome']))
                 return response()->json(['erro' => "nome Inválido"]);
-
-            if(Medico::where([ 'nome' => $object->nome ])->get())
+                
+            $check = Medico::where([ 'nome' => $object['nome'] ])->get();
+            if(count($check))
                 return response()->json(['erro' => "Nome do Médico já existe!"]);
 
             $medico = new Clinica();
-            $medico->clinica_id = $object->clinica_id;
-            $medico->nome = $object->nome;
-            $medico->idade = $object->idade;
-            $medico->especializacao = $object->especializacao;
-            $medico->preco_consulta = $object->preco_consulta;
-            $medico->telefone = $object->telefone;
-            $medico->email = $object->email;
-            $medico->whatsapp = $object->whatsapp;
-            $medico->foto = $object->foto;
+            $medico->clinica_id = $object['clinica_id'];
+            $medico->nome = $object['nome'];
+            $medico->idade = $object['idade'];
+            $medico->especializacao = $object['especializacao'];
+            $medico->preco_consulta = $object['preco_consulta'];
+            $medico->telefone = $object['telefone'];
+            $medico->email = $object['email'];
+            $medico->whatsapp = $object['whatsapp'];
+            $medico->foto = $object['foto'];
             $medico->save();
-
-            $medico = Medico::all();
             return response()->json(['medico' => $medico]);
         } catch (\Throwable $th) {
             return response()->json(['erro' => $th]);
@@ -80,7 +80,7 @@ class MedicoController extends Controller
      * @param  \App\Models\medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show(Request $request, $id)
     {
         try {
             if(!isset($id))
@@ -90,11 +90,19 @@ class MedicoController extends Controller
             if(empty($medico))
                 return response()->json(['erro' => "Nenhum médico foi encontrada"]);
 
-            return response()->json(['clinica' => $medico]);
+            return response()->json(['medico' => $medico]);
         } catch (\Throwable $th) {
             return response()->json(['erro' => $th]);
         }
     }
+
+
+    public function all()
+    {
+        $medicos = Medico::all()->get();
+        return response()->json(['medicos' => $medicos]);
+    }
+
 
     /**
      * Show the form for editing the specified resource.
