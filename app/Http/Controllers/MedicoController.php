@@ -108,7 +108,7 @@ class MedicoController extends Controller
         }
     }
 
-    public function byClinica(int $id)
+    public function byClinica(Request $request, $id)
     {
         try {
             $medicos = Medico::where(['clinica_id' => $id ])->all();

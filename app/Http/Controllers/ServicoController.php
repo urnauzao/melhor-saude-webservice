@@ -41,16 +41,17 @@ class ServicoController extends Controller
             if(empty($object['nome']))
                 return response()->json(['erro' => "nome Inválido"]);
             
-            $servico = Servico::where(['nome' => $object['nome']])->first();    
-            if(empty($object['lista_clinicas'])){
-                if($servico)
-                    return response()->json(['servico' => $servico]);
-
+            $servico = Servico::where(['nome' => $object['nome']])->first();   
+            if(!$servico){
                 $servico = new Servico;
                 $servico->nome = $object['nome'];
                 $servico->lista_clinicas = [];
-            }else{
-                $arrayClinicaIds = $servico->lista_clinicas;
+                $servico->save();
+            }
+            
+
+            if(count($object['lista_clinicas'])){
+                $arrayClinicaIds = $servico->lista_clinicas->toArray();
                 
                 foreach($object['lista_clinicas'] as $clinicaId){
                     $id = intval($clinicaId);
@@ -59,8 +60,8 @@ class ServicoController extends Controller
                         $arrayClinicaIds[] = $id;
                 }
                 $servico->lista_clinicas = $arrayClinicaIds;
+                $servico->save();
             }
-            $servico->save();
 
             // $servico = Servico::all();
             return response()->json(['servico' => $servico]);
