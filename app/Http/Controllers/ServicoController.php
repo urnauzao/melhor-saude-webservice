@@ -51,12 +51,12 @@ class ServicoController extends Controller
             
 
             if(count($object['lista_clinicas'])){
-                $arrayClinicaIds = $servico->lista_clinicas->toArray();
+                $arrayClinicaIds = is_array($servico->lista_clinicas) ? $servico->lista_clinicas : json_encode($servico->lista_clinicas);
                 
                 foreach($object['lista_clinicas'] as $clinicaId){
                     $id = intval($clinicaId);
                     $clinica = Clinica::find($id)->first();
-                    if($clinica && !in_array($clinica->id, $servico->lista_clinicas))
+                    if($clinica && !in_array($clinica->id, $arrayClinicaIds))
                         $arrayClinicaIds[] = $id;
                 }
                 $servico->lista_clinicas = $arrayClinicaIds;
