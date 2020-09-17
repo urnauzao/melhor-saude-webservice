@@ -52,10 +52,9 @@ class ServicoController extends Controller
 
             if(count($object['lista_clinicas'])){
                 $arrayClinicaIds = is_array($servico->lista_clinicas) ? $servico->lista_clinicas : json_encode($servico->lista_clinicas);
-                
+                $clinicaDesconhecida = [];
                 foreach($object['lista_clinicas'] as $key => $clinicaId){
                     $id = null;
-                    $clinicaDesconhecida = [];
                     $id = intval($clinicaId);
                     $clinica = Clinica::find($id)->first();
                     if($clinica && !in_array($id, $arrayClinicaIds))
@@ -66,7 +65,7 @@ class ServicoController extends Controller
                 $servico->lista_clinicas = $arrayClinicaIds;
                 $servico->save();
 
-                return response()->json(['servico' => $servico, 'clinicas desconhecidas' => $clinicaDesconhecida]);
+                return response()->json(['servico' => $servico, 'clinicas ignoradas' => $clinicaDesconhecida]);
             }
 
             // $servico = Servico::all();
