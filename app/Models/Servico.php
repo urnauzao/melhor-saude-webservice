@@ -23,4 +23,8 @@ class Servico extends Model
         "lista_clinicas",
         "nome",
     ];
+
+    protected $casts = [
+        'lista_clinicas' => 'array',
+    ];
 }

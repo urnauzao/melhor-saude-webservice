@@ -15,8 +15,8 @@ class Servico extends Migration
     {
         Schema::create('servicos', function (Blueprint $table) {
             $table->id();
-            $table->string('lista_clinicas');
-            $table->string('nome');
+            $table->string('nome')->nullable();
+            $table->json('lista_clinicas')->nullable()->comment('tags');
         });
     }
 

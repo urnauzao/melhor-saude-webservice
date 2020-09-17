@@ -20,7 +20,7 @@ class Clinica extends Model
      */
     protected $fillable = [
         "id",
-        "titulo",
+        "nome",
         "url_imagem",
         "url",
         "descricao",

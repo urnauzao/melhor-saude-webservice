@@ -17,13 +17,13 @@ class Medico extends Migration
             $table->id();
             $table->integer('clinica_id');
             $table->string('nome')->unique();
-            $table->integer('idade');
-            $table->string('especializacao');
-            $table->string('preco_consulta');
-            $table->string('telefone');
-            $table->string('email');
-            $table->integer('whatsapp');
-            $table->string('foto');
+            $table->integer('idade')->nullable();
+            $table->string('especializacao')->nullable();
+            $table->string('preco_consulta')->nullable();
+            $table->string('telefone')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('whatsapp')->nullable();
+            $table->string('foto')->nullable();
             $table->foreign('clinica_id')->references('id')->on('clinicas');             
         });
     }

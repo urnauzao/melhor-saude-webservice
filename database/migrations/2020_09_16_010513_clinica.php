@@ -15,20 +15,20 @@ class Clinica extends Migration
     {
         Schema::create('clinicas', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo'); //->unique();
-            $table->string('url_imagem');
-            $table->string('url');
-            $table->string('descricao');
-            $table->string('local_resumido');
-            $table->string('endereco');
-            $table->string('num_endereco');
-            $table->string('complemento');
-            $table->string('cep');
-            $table->string('cidade');
-            $table->string('bairro');
-            $table->string('estado');
-            $table->string('pais');
-            $table->float('rating');
+            $table->string('nome'); //->unique();
+            $table->string('url_imagem')->nullable();
+            $table->string('url')->nullable();
+            $table->string('descricao')->nullable();
+            $table->string('local_resumido')->nullable();
+            $table->string('endereco')->nullable();
+            $table->string('num_endereco')->nullable();
+            $table->string('complemento')->nullable();
+            $table->string('cep')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('estado')->nullable();
+            $table->string('pais')->nullable();
+            $table->float('rating')->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();               
         });
