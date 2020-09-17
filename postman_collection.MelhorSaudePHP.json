@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "988dbe97-80a5-4ed1-9f27-1a208ee05a8f",
+		"name": "MelhorSaudePHP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clinica",
+			"item": [
+				{
+					"name": "Nova Clinica",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"teste522\",\r\n    \"url_imagem\" : \"teste\",\r\n    \"url\" : \"teste\",\r\n    \"descricao\" : \"teste\",\r\n    \"local_resumido\" : \"teste\",\r\n    \"endereco\" : \"teste\",\r\n    \"num_endereco\" : \"teste\",\r\n    \"complemento\" : \"teste\",\r\n    \"cep\" : \"829291\",\r\n    \"cidade\" : \"teste\",\r\n    \"bairro\" : \"teste\",\r\n    \"estado\" : \"teste\",\r\n    \"pais\" : \"brasil\",\r\n    \"rating\" : 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/clinica/new",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clinica",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Clinica por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/clinica/show/1",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clinica",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mostrar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/clinica/all",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clinica",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Medico",
+			"item": [
+				{
+					"name": "Novo Medico",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clinica_id\" : 1,\r\n    \"nome\" : \"Jandir Moscadinho\",\r\n    \"idade\" : \"35\",\r\n    \"especializacao\" : \"Pediatra\",\r\n    \"preco_consulta\" : \"290\",\r\n    \"telefone\" : \"+55 (11) 99910-0001\",\r\n    \"email\" : \"jandir@gmail.com\",\r\n    \"whatsapp\" : 551999100,\r\n    \"foto\" : \"https://medicinadiaadia.com.br/wp-content/uploads/2018/09/Perito-médico-saiba-tudo-sobre-a-profissão-do-momento-1.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/medico/new",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medico",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Medico por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/medico/show/1",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medico",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Medico por ID de Clinica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/medico/clinica/1",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medico",
+								"clinica",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mostrar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/medico/all",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medico",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Servico",
+			"item": [
+				{
+					"name": "Novo Servico",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"pediatra6545233112\",\r\n    \"lista_clinicas\" : [4]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/servico/new",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servico",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Servico Geral",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/servico/show",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servico",
+								"show"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
