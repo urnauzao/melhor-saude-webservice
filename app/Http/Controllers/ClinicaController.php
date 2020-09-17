@@ -38,6 +38,7 @@ class ClinicaController extends Controller
     {
         try {
             $object = $request->all();
+            return response()->json(['resultado' => $object]);
             if(empty($object->nome))
                 return response()->json(['erro' => "nome Inválido"]);
 
