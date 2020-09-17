@@ -111,7 +111,10 @@ class MedicoController extends Controller
     public function byClinica(Request $request, $id)
     {
         try {
-            $medicos = Medico::where(['clinica_id' => $id ])->all();
+            if(!isset($id))
+                return response()->json(['erro' => "Deve ser informado um ID válido"]);
+
+            $medicos = Medico::where(['clinica_id' => $id ])->get();
             return response()->json(['medicos' => $medicos]);
         } catch (\Throwable $th) {
             return response()->json(['erro' => $th]);
