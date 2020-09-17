@@ -42,7 +42,8 @@ class ClinicaController extends Controller
             if(empty($object['nome']))
                 return response()->json(['erro' => "nome Inválido"]);
 
-            if(Clinica::where([ 'nome' => $object['nome'] ])->get())
+            $check = Clinica::where([ 'nome' => $object['nome'] ])->get();
+            if(!empty($check))
                 return response()->json(['erro' => "Nome da clinica já existe!"]);
 
             $clinica = new Clinica();
