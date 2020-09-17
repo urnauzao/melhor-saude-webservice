@@ -14,7 +14,7 @@ class Clinica extends Migration
     public function up()
     {
         Schema::create('clinicas', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nome'); //->unique();
             $table->string('url_imagem')->nullable();
             $table->string('url')->nullable();

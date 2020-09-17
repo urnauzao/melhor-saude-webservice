@@ -14,7 +14,7 @@ class Medico extends Migration
     public function up()
     {
         Schema::create('medicos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('clinica_id');
             $table->string('nome')->unique();
             $table->integer('idade')->nullable();

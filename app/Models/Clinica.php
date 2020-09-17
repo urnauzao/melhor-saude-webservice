@@ -11,7 +11,7 @@ class Clinica extends Model
 
     // protected $table = 'clinicas';
 
-    protected $primaryKey = 'id';
+    public $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +19,6 @@ class Clinica extends Model
      * @var array
      */
     protected $fillable = [
-        "id",
         "nome",
         "url_imagem",
         "url",

@@ -12,7 +12,7 @@ class Medico extends Model
     
     protected $table = 'medicos';
 
-    protected $primaryKey = 'id';
+    public $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +20,6 @@ class Medico extends Model
      * @var array
      */
     protected $fillable = [
-        "id",
         "clinica_id",
         "nome",
         "idade",

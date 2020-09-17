@@ -11,7 +11,7 @@ class Servico extends Model
 
     protected $table = 'servicos';
 
-    protected $primaryKey = 'id';
+    public $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +19,6 @@ class Servico extends Model
      * @var array
      */
     protected $fillable = [
-        "id",
         "lista_clinicas",
         "nome",
     ];
