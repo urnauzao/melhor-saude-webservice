@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clinica;
 use App\Models\Servico;
 use Illuminate\Http\Request;
 
@@ -50,13 +51,14 @@ class ServicoController extends Controller
                 $servico->lista_clinicas = [];
             }else{
                 $arrayClinicaIds = $servico->lista_clinicas;
+                
                 foreach($object['lista_clinicas'] as $clinicaId){
                     $id = intval($clinicaId);
                     $clinica = Clinica::find($id)->first();
                     if($clinica && !in_array($clinica->id, $servico->lista_clinicas))
                         $arrayClinicaIds[] = $id;
                 }
-                $servico->lista_clinicas =  $arrayClinicaIds;
+                $servico->lista_clinicas = $arrayClinicaIds;
             }
             $servico->save();
 
