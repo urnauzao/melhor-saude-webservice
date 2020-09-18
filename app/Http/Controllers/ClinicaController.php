@@ -52,7 +52,7 @@ class ClinicaController extends Controller
             $clinica->whatsapp = $object['whatsapp'];
             $clinica->descricao = $object['descricao'];
             $clinica->local_resumido = $object['local_resumido'];
-            $clinica->logradouro = $object['logradouro'] ?? $object['endereco'];
+            $clinica->logradouro = $object['logradouro'];
             $clinica->num_endereco = $object['num_endereco'];
             $clinica->complemento = $object['complemento'];
             $clinica->cep = $object['cep'];
