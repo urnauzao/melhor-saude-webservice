@@ -18,9 +18,10 @@ class Clinica extends Migration
             $table->string('nome'); //->unique();
             $table->string('url_imagem')->nullable();
             $table->string('url')->nullable();
-            $table->string('descricao')->nullable();
+            $table->bigInteger('whatsapp')->nullable();
+            $table->string('descricao', 1024)->nullable();
             $table->string('local_resumido')->nullable();
-            $table->string('endereco')->nullable();
+            $table->string('logradouro')->nullable();
             $table->string('num_endereco')->nullable();
             $table->string('complemento')->nullable();
             $table->string('cep')->nullable();
