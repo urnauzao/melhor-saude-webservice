@@ -88,6 +88,7 @@ class ServicoController extends Controller
             $resultado = [];
             foreach($servicos as $value){
                 $resultado[] = [
+                    "id" => $value->id,
                     "nome" => $value->nome,
                     "total" => count($value->lista_clinicas),
                     "clinicas" => $value->lista_clinicas
