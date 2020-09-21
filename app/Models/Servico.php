@@ -22,6 +22,7 @@ class Servico extends Model
         "id",
         "lista_clinicas",
         "nome",
+        "url"
     ];
 
     protected $casts = [

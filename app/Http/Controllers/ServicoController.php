@@ -91,7 +91,8 @@ class ServicoController extends Controller
                     "id" => $value->id,
                     "nome" => $value->nome,
                     "total" => count($value->lista_clinicas),
-                    "clinicas" => $value->lista_clinicas
+                    "clinicas" => $value->lista_clinicas,
+                    "url" => $value->url,
                 ];
             }
             return response()->json(['servicos' => $resultado]);
@@ -119,6 +120,7 @@ class ServicoController extends Controller
                 $resultado[] = [
                     "nome" => $value->nome,
                     "total" => count($value->lista_clinicas),
+                    "total" => $value->url,
                     "clinicas" => $clinicas
                 ];
             }

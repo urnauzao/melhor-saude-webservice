@@ -17,6 +17,7 @@ class Servico extends Migration
             $table->increments('id');
             $table->string('nome')->nullable();
             $table->json('lista_clinicas')->nullable()->comment('tags');
+            $table->string('url',512)->nullable();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();  
         });
