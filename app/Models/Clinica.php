@@ -19,6 +19,7 @@ class Clinica extends Model
      * @var array
      */
     protected $fillable = [
+        "id",
         "nome",
         "url_imagem",
         "url",

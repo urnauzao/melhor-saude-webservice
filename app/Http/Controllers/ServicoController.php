@@ -114,9 +114,7 @@ class ServicoController extends Controller
             $resultado = [];
             foreach($servicos as $value){
                 $clinicas = [];
-                // foreach($value->lista_clinicas as $idClinicas){
                 $clinicas = Clinica::whereIn('id', $value->lista_clinicas)->get();
-                // }
                 $resultado[] = [
                     "nome" => $value->nome,
                     "total" => count($value->lista_clinicas),

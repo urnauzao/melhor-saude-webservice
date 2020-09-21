@@ -20,6 +20,7 @@ class Medico extends Model
      * @var array
      */
     protected $fillable = [
+        "id",
         "clinica_id",
         "nome",
         "idade",

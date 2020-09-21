@@ -19,6 +19,7 @@ class Servico extends Model
      * @var array
      */
     protected $fillable = [
+        "id",
         "lista_clinicas",
         "nome",
     ];
