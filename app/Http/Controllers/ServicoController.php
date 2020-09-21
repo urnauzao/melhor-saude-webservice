@@ -110,8 +110,8 @@ class ServicoController extends Controller
     {
         try {
 
-            $servicos = (isset($id)) ? Servico::where(['id' => $id])->get() : $servicos = Servico::all();
-
+            $servicos = (isset($id)) ? Servico::where(['id' => $id])->get() : Servico::all();
+            return $servicos;
             $resultado = [];
             foreach($servicos as $value){
                 $clinicas = [];
