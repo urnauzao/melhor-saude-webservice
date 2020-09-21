@@ -117,7 +117,7 @@ class ServicoController extends Controller
                 $clinicas = [];
                 // foreach($value->lista_clinicas as $idClinicas){
                 $clinicas = Clinica::whereIn(['id' => $value->lista_clinicas])->get();
-                dd($clinicas);
+                return($clinicas);
                 // }
                 $resultado[] = [
                     "nome" => $value->nome,
