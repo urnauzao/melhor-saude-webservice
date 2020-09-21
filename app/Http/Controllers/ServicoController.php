@@ -99,6 +99,37 @@ class ServicoController extends Controller
         }
     }
 
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Servico  $servico
+     * @return \Illuminate\Http\Response
+     */
+    public function showWithClinicas($id = null)
+    {
+        try {
+
+            $servicos = (isset($id)) ? Servico::find($id)->get() : $servicos = Servico::all();
+
+            $resultado = [];
+            foreach($servicos as $value){
+                $clinicas = [];
+                foreach($value->lista_clinicas as $idClinicas){
+                    $clinicas = Clinica::whereIn(['id' => $value->lista_clinicas])->get();
+                }
+                $resultado[] = [
+                    "nome" => $value->nome,
+                    "total" => count($value->lista_clinicas),
+                    "clinicas" => $clinicas
+                ];
+            }
+            return response()->json(['servicos' => $resultado]);
+        } catch (\Throwable $th) {
+            return response()->json(['erro' => $th]);
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
