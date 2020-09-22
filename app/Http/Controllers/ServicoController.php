@@ -46,6 +46,7 @@ class ServicoController extends Controller
                 $servico = new Servico;
                 $servico->nome = $object['nome'];
                 $servico->lista_clinicas = [];
+                $servico->url = $object['url'] ?? null;
                 $servico->save();
             }
             
