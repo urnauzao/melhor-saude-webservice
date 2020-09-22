@@ -32,7 +32,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\" : \"teste522\",\r\n    \"url_imagem\" : \"teste\",\r\n    \"url\" : \"teste\",\r\n    \"descricao\" : \"teste\",\r\n    \"local_resumido\" : \"teste\",\r\n    \"endereco\" : \"teste\",\r\n    \"num_endereco\" : \"teste\",\r\n    \"complemento\" : \"teste\",\r\n    \"cep\" : \"829291\",\r\n    \"cidade\" : \"teste\",\r\n    \"bairro\" : \"teste\",\r\n    \"estado\" : \"teste\",\r\n    \"pais\" : \"brasil\",\r\n    \"rating\" : 4\r\n}",
+							"raw": "{\r\n    \"nome\" : \"Sorrídents4\",\r\n    \"url_imagem\" : \"https://sorridents.com.br/admin-agendamentos/static/details/16/2806/details_16_33c7719809f31483ee5eaabcb53f41a99.jpg\",\r\n    \"url\" : \"https://sorridents.com.br\",\r\n    \"descricao\" : \"Na Sorridents contamos com atendimento diferenciado oferece tratamentos realizados por clinicos gerais desde implantes, próteses, clareamento, aparelho dental, com atendimento para crianças, adolescentes, adultos e idosos.\",\r\n    \"local_resumido\" : \"Rua José Paulino, 1180, Centro, Campinas, SP, CEP: 13013-001\",\r\n    \"logradouro\" : \"Rua José Paulino\",\r\n    \"endereco\" : \"Rua José Paulino\",\r\n    \"num_endereco\" : \"1180\",\r\n    \"complemento\" : \"\",\r\n    \"cep\" : \"13013-001\",\r\n    \"cidade\" : \"Campinas\",\r\n    \"bairro\" : \"Centro\",\r\n    \"estado\" : \"SP\",\r\n    \"pais\" : \"Brasil\",\r\n    \"rating\" : 4.4,\r\n    \"whatsapp\" : 5511999107905\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -128,7 +128,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"clinica_id\" : 1,\r\n    \"nome\" : \"Jandir Moscadinho\",\r\n    \"idade\" : \"35\",\r\n    \"especializacao\" : \"Pediatra\",\r\n    \"preco_consulta\" : \"290\",\r\n    \"telefone\" : \"+55 (11) 99910-0001\",\r\n    \"email\" : \"jandir@gmail.com\",\r\n    \"whatsapp\" : 551999100,\r\n    \"foto\" : \"https://medicinadiaadia.com.br/wp-content/uploads/2018/09/Perito-médico-saiba-tudo-sobre-a-profissão-do-momento-1.jpg\"\r\n}",
+							"raw": "{\r\n    \"clinica_id\" : 1,\r\n    \"nome\" : \"Renato de Carvalho Najjar\",\r\n    \"idade\" : \"44\",\r\n    \"especializacao\" : \"Odontologia Estética\",\r\n    \"preco_consulta\" : \"100\",\r\n    \"telefone\" : \"(11) 3522-6480\",\r\n    \"email\" : \"wnajjar@gmail.com\",\r\n    \"whatsapp\" : 5511935226480,\r\n    \"foto\" : \"https://s3-sa-east-1.amazonaws.com/doctoralia.com.br/doctor/8f170e/8f170edaec897b2c36cd4f766fe08bf8_large.jpg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -246,7 +246,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\" : \"pediatra6545233112\",\r\n    \"lista_clinicas\" : [4]\r\n}",
+							"raw": "{\r\n    \"nome\" : \"Psicóloga\",\r\n    \"lista_clinicas\" : [1,2],\r\n    \"url\": \"https://www.vittude.com/blog/wp-content/uploads/Como-abrir-uma-clínica-de-psicologia-800x457.jpg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -285,6 +285,28 @@
 							"path": [
 								"servico",
 								"show"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Servico com Clinica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://melhor-saude-webservice.herokuapp.com/servico/showWithClinicas/",
+							"protocol": "http",
+							"host": [
+								"melhor-saude-webservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"servico",
+								"showWithClinicas",
+								""
 							]
 						}
 					},
