@@ -23,6 +23,9 @@ Utilizando o Framework Laravel foi desenvolvimento todo backend para gerenciamen
 Além do .env.example que deverá ser custimizado como bem entender para execução do sistema, existe também um arquivo de configuração da cloud **(Heroku)[https://heroku.com/]** pronto para uso.
 
 
+## Orientações
+Utiliza o arquivo postman_collection.json e o importe no programa Postman, com isso você terá acesso a bibliotecas de rotas disponíveis e operando na API.
+
 ## Requisitos
 - Composer 1.10^
 - PHP 7.4^
