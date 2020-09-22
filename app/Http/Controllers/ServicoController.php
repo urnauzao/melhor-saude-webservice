@@ -63,6 +63,7 @@ class ServicoController extends Controller
                         $clinicaDesconhecida[] = $id;
                 }
                 $servico->lista_clinicas = $arrayClinicaIds;
+                $servico->url = $object['url'] ?? null;
                 $servico->save();
 
                 return response()->json(['servico' => $servico, 'clinicas ignoradas' => $clinicaDesconhecida]);
@@ -120,7 +121,7 @@ class ServicoController extends Controller
                 $resultado[] = [
                     "nome" => $value->nome,
                     "total" => count($value->lista_clinicas),
-                    "total" => $value->url,
+                    "url" => $value->url,
                     "clinicas" => $clinicas
                 ];
             }
