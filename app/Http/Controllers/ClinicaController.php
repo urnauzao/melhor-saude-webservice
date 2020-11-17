@@ -78,19 +78,9 @@ class ClinicaController extends Controller
     // public function show(Request $request, $id)
     public function show(Clinica $clinica)
     {
+        if(!$clinica)
+            return response()->json(['erro' => "Nenhuma clinica foi encontrada"]);
         return response()->json(['clinica' => $clinica, 'id' => $clinica->id]);
-        // try {
-        //     if(!$id)
-        //         return response()->json(['erro' => "Deve ser informado um ID válido"]);
-
-        //     $clinica = Clinica::find($id)->first();
-        //     if(!$clinica)
-        //         return response()->json(['erro' => "Nenhuma clinica foi encontrada"]);
-
-        //     return response()->json(['clinica' => $clinica, 'id' => $id]);
-        // } catch (\Throwable $th) {
-        //     return response()->json(['erro' => $th]);
-        // }
     }
 
     public function all(){

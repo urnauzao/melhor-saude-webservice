@@ -78,23 +78,14 @@ class MedicoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\medico  $medico
+     * @param  \App\Models\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show(Medico $medico)
     {
-        try {
-            if(!isset($id))
-                return response()->json(['erro' => "Deve ser informado um ID válido"]);
-
-            $medico = Medico::find($id)->first();
-            if(empty($medico))
-                return response()->json(['erro' => "Nenhum médico foi encontrada"]);
-
-            return response()->json(['medico' => $medico]);
-        } catch (\Throwable $th) {
-            return response()->json(['erro' => $th]);
-        }
+        if(empty($medico))
+            return response()->json(['erro' => "Nenhum médico foi encontrada"]);
+        return response()->json(['medico' => $medico]);
     }
 
 

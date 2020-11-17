@@ -45,7 +45,7 @@ Route::prefix('medico')->group(function () {
     Route::get('/all', [MedicoController::class, 'all']);
     Route::get('/clinica/{id}', [MedicoController::class, 'byClinica']);
     Route::post('/new', [MedicoController::class, 'store']);
-    Route::get('/show/{id}', [MedicoController::class, 'show']);
+    Route::get('/show/{medico}', [MedicoController::class, 'show']);
 });
 
 
