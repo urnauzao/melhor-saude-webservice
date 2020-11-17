@@ -78,7 +78,10 @@ class ClinicaController extends Controller
     // public function show(Request $request, $id)
     public function show(Clinica $clinica)
     {
-        return response()->json(['clinica' => $clinica, 'id' => $clinica->id]);
+        $clinicaOK  = Clinica::where(['id' => $clinica->id]);
+
+
+        return response()->json(['clinica' => $clinica, 'id' => $clinica->id, "clinicaOK" => $clinicaOk]);
         // try {
         //     if(!$id)
         //         return response()->json(['erro' => "Deve ser informado um ID válido"]);

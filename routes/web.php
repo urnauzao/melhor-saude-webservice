@@ -28,7 +28,7 @@ Route::prefix('clinica')->group(function () {
     Route::get('/all', [ClinicaController::class, 'all']);
     // Route::get('/model', [ClinicaController::class, 'create']);
     Route::post('/new', [ClinicaController::class, 'store']);
-    Route::get('/show/{clinica}', [ClinicaController::class, 'show']);
+    Route::get('/show/{clinica?}', [ClinicaController::class, 'show']);
 });
 
 Route::prefix('servico')->group(function () {
